@@ -1,0 +1,123 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Background = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
+local BackgroundBar = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local LoadingBar = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local LoadingProgress = Instance.new("TextLabel")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Background.Name = "Background"
+Background.Parent = ScreenGui
+Background.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Background.BorderSizePixel = 0
+Background.Size = UDim2.new(1, 0, 0.997933865, 0)
+
+ImageLabel.Parent = Background
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.325466394, 0, 0.378060669, 0)
+ImageLabel.Size = UDim2.new(0.343553364, 0, 0.273291916, 0)
+ImageLabel.Image = "rbxassetid://114689511747399"
+
+BackgroundBar.Name = "BackgroundBar"
+BackgroundBar.Parent = Background
+BackgroundBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BackgroundBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+BackgroundBar.BorderSizePixel = 0
+BackgroundBar.Position = UDim2.new(0.180991396, 0, 0.783057868, 0)
+BackgroundBar.Size = UDim2.new(0.636522591, 0, 0.0476190485, 0)
+
+UICorner.Parent = BackgroundBar
+
+LoadingBar.Name = "LoadingBar"
+LoadingBar.Parent = BackgroundBar
+LoadingBar.BackgroundColor3 = Color3.fromRGB(85, 111, 255)
+LoadingBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LoadingBar.BorderSizePixel = 0
+LoadingBar.Position = UDim2.new(-3.08124797e-08, 0, 0, 0)
+LoadingBar.Size = UDim2.new(0, 0, 0, 23)
+
+UICorner_2.Parent = LoadingBar
+
+LoadingProgress.Name = "LoadingProgress"
+LoadingProgress.Parent = Background
+LoadingProgress.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LoadingProgress.BackgroundTransparency = 1.000
+LoadingProgress.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LoadingProgress.BorderSizePixel = 0
+LoadingProgress.Position = UDim2.new(0.369440436, 0, 0.67908901, 0)
+LoadingProgress.Size = UDim2.new(0, 200, 0, 50)
+LoadingProgress.Font = Enum.Font.SourceSansBold
+LoadingProgress.Text = "0%"
+LoadingProgress.TextColor3 = Color3.fromRGB(0, 0, 0)
+LoadingProgress.TextSize = 40.000
+
+TextLabel.Parent = Background
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.344473004, 0, 0.194616973, 0)
+TextLabel.Size = UDim2.new(0, 241, 0, 56)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "Loading the Bypass Feature"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 40.000
+
+TextLabel_2.Parent = Background
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.371465296, 0, 0.275362313, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSansBold
+TextLabel_2.Text = "Please be patient, this can take up to 5 minutes to load."
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 25.000
+
+TextLabel_3.Parent = Background
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.BorderSizePixel = 0
+TextLabel_3.Position = UDim2.new(-0.0536384173, 0, 0, 0)
+TextLabel_3.Size = UDim2.new(0, 259, 0, 24)
+TextLabel_3.Font = Enum.Font.SourceSansBold
+TextLabel_3.Text = "Tiktok: ap_2good4u"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 20.000
+
+-- Loading function to animate the progress
+local function updateLoadingBar()
+    for i = 1, 100 do
+        -- Update the loading bar size
+        LoadingBar.Size = UDim2.new(i / 100, 0, 0, 23)
+        
+        -- Update the percentage text
+        LoadingProgress.Text = tostring(i) .. "%"
+        
+        -- Wait a bit to simulate loading (speed of progress)
+        wait(2.5)
+    end
+end
+
+-- Call the loading function
+updateLoadingBar()
